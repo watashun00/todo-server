@@ -8,9 +8,9 @@ import json
 
 responses = []
 response = {"id": 1, "deadline": "2019-06-11T14:00:00+09:00", "title": "Report submission", "memo": ""}
-#response2 = {"id": 2, "deadline": "2019-06-11T14:00:00+09:00", "title": "222", "memo": ""}
+response2 = {"id": 2, "deadline": "2019-06-11T14:00:00+09:00", "title": "222", "memo": ""}
 responses.append(response)
-#responses.append(response2)
+responses.append(response2)
 
 class RequestHandler(BaseHTTPRequestHandler):
 
@@ -28,7 +28,14 @@ class RequestHandler(BaseHTTPRequestHandler):
 
         #全取得の条件分岐
         if len(path_elements)==3:
-            print("全取得します")
+            self.send_response(200)
+            self.end_headers()
+
+            #全リストを作成
+            all_responses = {"events":responses}
+
+            responseBody = json.dumps(all_responses)
+            self.wfile.write(responseBody.encode('utf-8'))
             return
 
         #idが存在しない
