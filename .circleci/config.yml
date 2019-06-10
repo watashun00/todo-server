@@ -1,7 +1,32 @@
 version: 2
-test:
-  override:
-    - pwd ~
-    - ifconfig
-    - echo HelloWorld
-    - exit 0
+
+jobs:
+  build:
+    docker:
+      - image: circleci/python:3.6.4
+    steps:
+      - checkout
+
+      - run:
+          name: Print Test
+          command: echo Test.
+      
+      - run:
+          name: Install
+          command: |
+            python3 -m venv venv
+            . venv/bin/activate
+            pip install pytest
+            pip install requests
+
+      - run:
+          name: Background Server
+          command:  python3 http_server.py 
+          background: true
+
+
+      - run:
+          name: Run Test
+          command: |
+            . venv/bin/activate
+            pytest
