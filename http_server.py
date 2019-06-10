@@ -7,10 +7,10 @@ import sys
 import json
 
 responses = []
-response = {"id": 1, "deadline": "2019-06-11T14:00:00+09:00", "title": "Report submission", "memo": ""}
-response2 = {"id": 2, "deadline": "2019-06-11T14:00:00+09:00", "title": "222", "memo": ""}
-responses.append(response)
-responses.append(response2)
+#response = {"id": 1, "deadline": "2019-06-11T14:00:00+09:00", "title": "Report submission", "memo": ""}
+#response2 = {"id": 2, "deadline": "2019-06-11T14:00:00+09:00", "title": "222", "memo": ""}
+#responses.append(response)
+#responses.append(response2)
 
 class RequestHandler(BaseHTTPRequestHandler):
 
