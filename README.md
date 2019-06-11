@@ -1,5 +1,7 @@
 # todo-server  
 
+[![CircleCI](https://circleci.com/gh/watashun00/todo-server/tree/master.svg?style=svg)](https://circleci.com/gh/watashun00/todo-server/tree/master)
+
 - TODO 管理サービス用の HTTP サーバ
 - TODO イベントを POST で登録，GET で取得できる
 - POST，GET ともに，データは JSON でやりとりする
